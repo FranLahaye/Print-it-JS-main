@@ -1,1 +1,2 @@
-# Print-It WebSite v.1
+# Print-It WebSite v.2
+# modified by François Lahaye for project 8
