@@ -17,6 +17,7 @@ const slides = [
 	}
 ]
 
+
 // Insert dots into the DOM
 let dots_container = document.querySelector(".dots");
 // one dot created per slide
@@ -26,14 +27,12 @@ for(let index_slide=0; index_slide < slides.length; index_slide++) {
 	if (index_slide === 0) dot.classList.add("dot_selected"); // current selected dot
 	dots_container.appendChild(dot);
 }
+
 // All global HTML elements
 let dots = document.querySelectorAll(".dot");
 let current_img = document.querySelector(".banner-img");
 let current_tagline = document.querySelector("#banner p");
 
-// Slider initialisation
-let current_index = 0; // index current slide
-showSlide(current_index);
 
 // Function to show the slide
 function showSlide(current_slide) {
@@ -48,10 +47,15 @@ function showSlide(current_slide) {
 	current_tagline.innerHTML = slides[current_slide]["tagLine"];
 }
 
+// Slider initialisation
+let current_index = 0; // index current slide
+showSlide(current_index);
+
+
 // Event listener for left arrow
 document.querySelector("#banner .arrow_left").addEventListener("click", () => {
 	current_index--;
-	if (current_index < 0) current_index = slides.length - 1; // infinite looping slider
+	if (current_index < 0) current_index = slides.length - 1; // infinite loop of slider
 
 	showSlide(current_index);
 });
@@ -59,7 +63,7 @@ document.querySelector("#banner .arrow_left").addEventListener("click", () => {
 // Event listener for right arrow
 document.querySelector("#banner .arrow_right").addEventListener("click", () => {
 	current_index++;
-	if (current_index >= slides.length) current_index = 0; // infinite looping slider
+	if (current_index >= slides.length) current_index = 0; // infinite loop of slider
 
 	showSlide(current_index);
 });
